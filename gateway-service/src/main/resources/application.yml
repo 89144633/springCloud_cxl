@@ -1,0 +1,35 @@
+server:
+    port: 8000
+
+spring:
+    application:
+        name: gateway-service
+    profiles:
+        active: dev
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 47.103.32.78:80 #这里是你的nacos地址
+        gateway:
+            discovery:
+                locator:
+                    enabled: false
+            routes:
+                -   id: demo1
+                    uri: lb://demo1-service
+                    predicates:
+                        - Path=/demo1/**
+                    filters:
+                        - StripPrefix=1
+
+                -   id: demo2
+                    uri: lb://demo2-service
+                    predicates:
+                        - Path=/demo2/**
+                    filters:
+                        - StripPrefix=1
+
+#提升nacos配置中心的打印日志级别(其实是nacos的一个bug)，禁止打印无用信息
+logging:
+    level:
+        com.alibaba.nacos.client.*: WARN

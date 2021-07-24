@@ -1,0 +1,20 @@
+server:
+    port: 8002
+
+spring:
+    application:
+        name: demo2-service
+    profiles:
+        active: dev
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 47.103.32.78:80
+
+swagger:
+    enabled: true
+
+#提升nacos配置中心的打印日志级别(其实是nacos的一个bug)，禁止打印无用信息
+logging:
+    level:
+        com.alibaba.nacos.client.config.impl: WARN
