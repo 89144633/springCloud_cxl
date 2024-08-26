@@ -32,7 +32,7 @@
 
         <!--swagger2-->
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
+        <springfox-swagger-ui.version>2.10.0</springfox-swagger-ui.version>
         <swagger-annotations.version>1.5.21</swagger-annotations.version>
         <swagger-model.version>1.5.21</swagger-model.version>
 
